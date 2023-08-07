@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action" : [
+                "dynamodb:UpdateItem",
+                "dynamodb:GetItem",
+                "dynamodb:PutItem"
+              ],
+            "Resource" : "arn:aws:dynamodb:*:*:table/resume-table"
+        },
+        {
+            "Action" : [
+              "logs:CreateLogGroup",
+              "logs:CreateLogStream",
+              "logs:PutLogEvents"
+            ],
+            "Resource" : "arn:aws:logs:*:*:*",
+            "Effect" : "Allow"
+        }
+    ]
+}
