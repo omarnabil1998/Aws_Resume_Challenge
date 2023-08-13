@@ -40,10 +40,10 @@ Push Resume Files:
   stage: Push Resume Files
   script:
     - cd Resume-files/
-    - apk add python3
-    - pip3 install awscli
     - sed -i 's/lambda_url/$LAMBDA_URL/' index.js
     - aws s3 sync . s3://$S3_BUCKET --delete
+  needs:
+    - Terraform Apply
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
     
