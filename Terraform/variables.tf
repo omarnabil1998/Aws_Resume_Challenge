@@ -9,7 +9,3 @@ variable "contact" {
 variable "project" {
   default = "Cloud_Resume_Challenge"
 }
-
-variable "s3_origin_id" {
-  default = "myS3Origin"
-}

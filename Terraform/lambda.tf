@@ -30,11 +30,24 @@ resource "aws_lambda_function_url" "resume_function" {
 
   cors {
     allow_credentials = true
-    #allow_origins     = ["https://www.${aws_cloudfront_distribution.s3_distribution.domain_name}"]
-    allow_origins  = ["*"]
+    allow_origins     = ["https://${aws_cloudfront_distribution.s3_distribution.domain_name}"]
     allow_methods  = ["*"]
     allow_headers  = ["date", "keep-alive"]
     expose_headers = ["keep-alive", "date"]
     max_age        = 86400
   }
+}
+
+data "template_file" "index_js" {
+  template = file("./templates/index.js.tpl")
+
+  vars = {
+    lambda_url = aws_lambda_function_url.resume_function.function_url
+    data       = "$${data}"
+  }
+}
+
+resource "local_file" "index_js" {
+  content  = data.template_file.index_js.rendered
+  filename = "./index.js"
 }
