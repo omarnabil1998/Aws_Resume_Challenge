@@ -31,9 +31,9 @@ resource "aws_lambda_function_url" "resume_function" {
   cors {
     allow_credentials = true
     allow_origins     = ["https://${aws_cloudfront_distribution.s3_distribution.domain_name}"]
-    allow_methods  = ["*"]
-    allow_headers  = ["date", "keep-alive"]
-    expose_headers = ["keep-alive", "date"]
-    max_age        = 86400
+    allow_methods     = ["*"]
+    allow_headers     = ["date", "keep-alive"]
+    expose_headers    = ["keep-alive", "date"]
+    max_age           = 86400
   }
 }
