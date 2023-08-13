@@ -48,7 +48,7 @@ Push Resume Files:
     - if: '$CI_COMMIT_BRANCH == "master"'
     
 Terraform Destroy:
-  stage: Destroy
+  stage: Terraform Destroy
   script: 
     - cd Terraform/
     - terraform init
