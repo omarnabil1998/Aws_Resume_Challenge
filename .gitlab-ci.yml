@@ -1,0 +1,58 @@
+image:
+  name: hashicorp/terraform:1.4.6
+  entrypoint:
+    - '/usr/bin/env'
+    - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+
+stages:
+  - Testing
+  - Push Resume Files
+  - Terraform Apply
+  - Terraform Destroy
+
+Validate Terraform:
+  stage: Testing
+  script:
+    - cd Terraform/
+    - terraform init -backend=false
+    - terraform validate
+    - terraform fmt -check  
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_COMMIT_BRANCH == "master"'
+
+Terraform Apply:
+  stage: Terraform Apply
+  script:
+    - cd Terraform/
+    - terraform init
+    - terraform apply -auto-approve
+    - echo "S3_BUCKET=$(terraform output bucket_name)" >> vars.env
+    - echo "LAMBDA_URL=$(terraform output lambda_function_url)" >> vars.env
+  artifacts:
+    reports:
+      dotenv: vars.env
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+
+Push Resume Files:
+  image: ubuntu:latest
+
+  stage: Push Resume Files
+  script:
+    - cd Resume-files/
+    - apk add python3
+    - pip3 install awscli
+    - sed -i 's/lambda_url/$LAMBDA_URL/' index.js
+    - aws s3 sync . s3://$S3_BUCKET --delete
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+    
+Terraform Destroy:
+  stage: Destroy
+  script: 
+    - cd Terraform/
+    - terraform init
+    - terraform destroy -auto-approve
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: manual
