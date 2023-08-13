@@ -18,7 +18,7 @@ Validate Terraform:
     - terraform validate
     - terraform fmt -check  
   rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_COMMIT_BRANCH == "main"'
 
 Terraform Apply:
   stage: Terraform Apply
@@ -32,7 +32,7 @@ Terraform Apply:
     reports:
       dotenv: vars.env
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
 
 Push Resume Files:
   image: ubuntu:latest
@@ -45,7 +45,7 @@ Push Resume Files:
     - sed -i 's/lambda_url/$LAMBDA_URL/' index.js
     - aws s3 sync . s3://$S3_BUCKET --delete
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
     
 Terraform Destroy:
   stage: Terraform Destroy
@@ -54,5 +54,5 @@ Terraform Destroy:
     - terraform init
     - terraform destroy -auto-approve
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
       when: manual
