@@ -1,10 +1,10 @@
 terraform {
   backend "s3" {
-    bucket         = ""
-    key            = ""
+    bucket         = "aws-resume-challenge-tf-state"
+    key            = "aws-resume-challenge.tfstate"
     encrypt        = true
     region         = "us-east-1"
-    dynamodb_table = ""
+    dynamodb_table = "aws-resume-challenge-tf-state-lock"
   }
   required_providers {
     aws = {
