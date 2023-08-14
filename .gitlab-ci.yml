@@ -23,6 +23,8 @@ Validate Terraform:
 Terraform Apply:
   stage: Terraform Apply
   script:
+    - false || exit_code=$?
+    - if [ $exit_code -ne 0 ]; then echo "Previous command failed"; fi;
     - cd Terraform/
     - terraform init
     - exit_code=0
