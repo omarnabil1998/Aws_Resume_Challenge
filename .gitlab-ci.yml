@@ -26,7 +26,7 @@ Terraform Apply:
     - cd Terraform/
     - terraform init
     - terraform apply -auto-approve
-    - echo "S3_BUCKET" >> vars.env
+    - echo "S3_BUCKET=hello" >> vars.env
   artifacts:
     reports:
       dotenv: vars.env
