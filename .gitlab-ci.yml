@@ -23,10 +23,12 @@ Validate Terraform:
 Terraform Apply:
   stage: Terraform Apply
   script:
+    - false || exit_code=$?
+    - if [ $exit_code -ne 0 ]; then echo "Previous command failed"; fi;
     - cd Terraform/
     - terraform init
     - export TF_VAR_dynamedb_table_exist=true
-    - terraform plan -target="aws_dynamodb_table.resume-table" -detailed-exitcode 2> /dev/null
+    - terraform plan -target="aws_dynamodb_table.resume-table" -detailed-exitcode
     - exit_code=$(echo $?)
     - if [[ $exit_code == 2 ]]; then export TF_VAR_dynamedb_table_exist=true; else export TF_VAR_dynamedb_table_exist=false; fi
     - terraform apply -auto-approve
