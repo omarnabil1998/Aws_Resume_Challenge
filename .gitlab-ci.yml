@@ -27,7 +27,7 @@ Terraform Apply:
     - terraform init
     - exit_code=0
     - terraform plan -target="aws_dynamodb_table.resume-table" -detailed-exitcode || exit_code=$?
-    - if [[ $exit_code == 2 ]]; then export TF_VAR_dynamedb_table_exist=true; else export TF_VAR_dynamedb_table_exist=false; fi
+    - if [[ $exit_code == 2 ]]; then export TF_VAR_create_dynamedb_item=true; else export TF_VAR_create_dynamedb_item=false; fi
     - terraform apply -auto-approve
     - echo "S3_BUCKET=$(terraform output -raw bucket_name)" >> /builds/onabil1998/aws_resume_challenge/vars.env
     - echo "LAMBDA_URL=$(terraform output -raw lambda_function_url)" >> /builds/onabil1998/aws_resume_challenge/vars.env

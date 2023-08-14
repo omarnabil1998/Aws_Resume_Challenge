@@ -11,7 +11,7 @@ resource "aws_dynamodb_table" "resume-table" {
 }
 
 resource "aws_dynamodb_table_item" "resume-table" {
-  count      = var.dynamedb_table_exist ? 1 : 0
+  count      = var.create_dynamedb_item ? 1 : 0
   table_name = aws_dynamodb_table.resume-table.name
   hash_key   = aws_dynamodb_table.resume-table.hash_key
 
