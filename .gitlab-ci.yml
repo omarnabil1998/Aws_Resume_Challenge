@@ -41,7 +41,7 @@ Push Resume Files:
   stage: Push Resume Files
   script:
     - cd Resume-files/
-    - sed -i 's/lambda_url/$LAMBDA_URL/' index.js
+    - sed -i s/lambda_url/$LAMBDA_URL/ index.js
     - cat index.js
     - aws s3 sync . s3://$S3_BUCKET --delete
   needs:
