@@ -26,8 +26,8 @@ Terraform Apply:
     - cd Terraform/
     - terraform init
     - terraform apply -auto-approve
-    - echo "S3_BUCKET=$(terraform output bucket_name)" >> /builds/onabil1998/aws_resume_challenge/vars.env
-    - echo "LAMBDA_URL=$(terraform output lambda_function_url)" >> /builds/onabil1998/aws_resume_challenge/vars.env
+    - echo "S3_BUCKET=$(terraform output -raw bucket_name)" >> /builds/onabil1998/aws_resume_challenge/vars.env
+    - echo "LAMBDA_URL=$(terraform output -raw lambda_function_url)" >> /builds/onabil1998/aws_resume_challenge/vars.env
     - cat /builds/onabil1998/aws_resume_challenge/vars.env
   artifacts:
     reports:
@@ -42,7 +42,6 @@ Push Resume Files:
   script:
     - cd Resume-files/
     - sed -i 's/lambda_url/$LAMBDA_URL/' index.js
-    - echo $S3_BUCKET
     - aws s3 sync . s3://$S3_BUCKET --delete
   needs:
     - Terraform Apply
