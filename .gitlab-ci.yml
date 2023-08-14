@@ -28,7 +28,9 @@ Terraform Apply:
     - cd Terraform/
     - terraform init
     - export TF_VAR_dynamedb_table_exist=true
+    - set +e
     - terraform plan -target="aws_dynamodb_table.resume-table" -detailed-exitcode
+    - set -e
     - exit_code=$(echo $?)
     - if [[ $exit_code == 2 ]]; then export TF_VAR_dynamedb_table_exist=true; else export TF_VAR_dynamedb_table_exist=false; fi
     - terraform apply -auto-approve
