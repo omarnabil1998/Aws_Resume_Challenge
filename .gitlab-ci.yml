@@ -40,6 +40,7 @@ Push Resume Files:
   script:
     - cd Resume-files/
     - sed -i 's/lambda_url/$LAMBDA_URL/' index.js
+    - echo "$S3_BUCKET"
     - aws s3 sync . s3://"$S3_BUCKET" --delete
   needs:
     - Terraform Apply
