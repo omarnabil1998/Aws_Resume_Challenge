@@ -9,7 +9,3 @@ variable "contact" {
 variable "project" {
   default = "Cloud_Resume_Challenge"
 }
-
-variable "create_dynamedb_item" {
-  default = true
-}
