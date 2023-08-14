@@ -9,3 +9,5 @@ variable "contact" {
 variable "project" {
   default = "Cloud_Resume_Challenge"
 }
+
+variable "dynamedb_table_exist" {}
