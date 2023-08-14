@@ -26,10 +26,10 @@ Terraform Apply:
     - cd Terraform/
     - terraform init
     - terraform apply -auto-approve
-    - echo "S3_BUCKET=hello" >> vars.env
+    - echo "S3_BUCKET=hello" >> build.env
   artifacts:
     reports:
-      dotenv: vars.env
+      dotenv: /builds/onabil1998/aws_resume_challenge/build.env
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
 
