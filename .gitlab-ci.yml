@@ -26,7 +26,7 @@ Terraform Apply:
     - cd Terraform/
     - terraform init
     - terraform apply -auto-approve
-    - echo "S3_BUCKET=hello" >> build.env
+    - echo "S3_BUCKET=hello" >> /builds/onabil1998/aws_resume_challenge/build.env
   artifacts:
     reports:
       dotenv: /builds/onabil1998/aws_resume_challenge/build.env
