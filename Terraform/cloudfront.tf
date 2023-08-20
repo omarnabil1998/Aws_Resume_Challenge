@@ -34,7 +34,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   aliases = ["${data.aws_route53_zone.resume.name}"]
-  
+
   depends_on = [
     aws_s3_bucket.resume_files,
     aws_cloudfront_origin_access_control.s3_bucket
