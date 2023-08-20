@@ -6,6 +6,7 @@ resource "aws_route53_record" "cloudfront_record" {
   zone_id = data.aws_route53_zone.resume.zone_id
   name    = data.aws_route53_zone.resume.name
   type    = "A"
+  ttl     = 300
 
   alias {
     name                   = aws_cloudfront_distribution.s3_distribution.domain_name
@@ -18,6 +19,7 @@ resource "aws_route53_record" "www" {
   zone_id = data.aws_route53_zone.resume.zone_id
   name    = "www"
   type    = "CNAME"
+  ttl     = 300
 
   records = ["${data.aws_route53_zone.resume.name}"]
 }
