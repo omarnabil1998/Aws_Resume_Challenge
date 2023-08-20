@@ -96,6 +96,12 @@
 
 							<div class="job">
 								<h2>Deploying Nodejs Webapp on EKS cluster:</h2>
+								<li>Provisioning 3 servers for jenkins, nexus and nginx with Terraform and configuring them with Ansible</li>
+								<li>Dockerize a nodejs web app and push it to private docker registry hosted on nexus running behind nginx reverse proxy with tls configured</li>
+								<li>Provisioning EKS cluster using Terraform with Istio gateway to be the entrypoint of our cluster</li>
+								<li>Configured a Jenkins pipeline alongside with argocd to achieve CI/CD for our application deployment</li>
+								<li>Enforced MTLS by default with Istio and Defined alert rules to fire and send notification to slack channel</li>
+								<li>Tools used: Docker, Terraform, Ansible, Istio, Jenkins, Argocd, Nexus, Kubernetes, AWS, Prometheus and Nginx </li>
 								<p>Implemented full Devops lifecycle from dockerizing nodejs web app to provision the infrastructure, configuration management of the servers with monitoring, CICD, GitOps and service mesh configured<br>Tools used: Docker, Terraform, Ansible, Istio, Jenkins, Argocd, Nexus, Kubernetes, AWS, Prometheus and Nginx </p>
 							</div>
 
