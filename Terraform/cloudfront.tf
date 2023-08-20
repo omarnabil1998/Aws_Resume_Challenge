@@ -23,7 +23,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     cache_policy_id        = data.aws_cloudfront_cache_policy.cache_policy.id
     target_origin_id       = aws_s3_bucket.resume_files.id
     compress               = true
-    viewer_protocol_policy = "https-only"
+    viewer_protocol_policy = "redirect-to-https"
   }
 
   viewer_certificate {
