@@ -9,3 +9,8 @@ variable "contact" {
 variable "project" {
   default = "Cloud_Resume_Challenge"
 }
+
+variable "dns_zone_name" {
+  description = "Domain name"
+  default     = "omarnabeel.com"
+}
