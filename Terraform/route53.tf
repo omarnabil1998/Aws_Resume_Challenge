@@ -24,8 +24,9 @@ resource "aws_route53_record" "www" {
 }
 
 resource "aws_acm_certificate" "cert" {
-  domain_name       = data.aws_route53_zone.resume.name
-  validation_method = "DNS"
+  domain_name               = data.aws_route53_zone.resume.name
+  subject_alternative_names = ["*.${data.aws_route53_zone.resume.name}"]
+  validation_method         = "DNS"
 
   tags = local.common_tags
 
