@@ -18,6 +18,7 @@ resource "aws_route53_record" "www" {
   zone_id = data.aws_route53_zone.resume.zone_id
   name    = "www"
   type    = "CNAME"
+  ttl     = 300
 
   records = ["${data.aws_route53_zone.resume.name}"]
 }
