@@ -6,7 +6,7 @@
 ## Project Description
 The Cloud Resume Challenge is a project that helps to demonstrate skills necessary for working in the cloud as the project involves integrating several cloud services together like S3, Cloudfront, Lambda, Dynamodb, Route53 alongside with other Devops skills like CI/CD and infrastructure as a code
 
-Resume website: [omarnabeel.com](omarnabeel.com)
+Resume website: [omarnabeel.com](https://omarnabeel.com)
 
 ## Details
 ### S3
