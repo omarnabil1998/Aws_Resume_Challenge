@@ -19,7 +19,7 @@
 /* //-- yui-grids style overrides -- */
 html { background-color:rgb(25, 25, 25); }
 body { font-family: Georgia; color: #444; }
-#inner { padding: 10px 80px; margin: 60px auto; background: #f5f5f5; border: solid #666; border-width: 8px 0 2px 0; }
+#inner { padding: 10px 55px; margin: 60px auto; background: #f5f5f5; border: solid #666; border-width: 8px 0 2px 0; }
 .yui-gf { margin-bottom: 2em; padding-bottom: 2em; border-bottom: 1px solid #ccc; }
 
 /* //-- header, body, footer -- */
@@ -70,5 +70,9 @@ a#pdf:hover { background: #222; }
 
 /* --// override to force 1/8th width grids -- */
 .yui-gf .yui-u{width:80.2%;}
-.yui-gf .yui-u li{border-bottom: 1px solid #ccc; }
 .yui-gf div.first{width:17.3%;}
+
+.contact-info li { list-style: none; }
+.talent li { list-style: none; border-bottom: 1px solid #ccc;}
+.job li { font-size: 15px; }
+.job h2 { margin-bottom: 10px; }

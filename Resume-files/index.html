@@ -96,23 +96,26 @@
 
 							<div class="job">
 								<h2>Deploying Nodejs Webapp on EKS cluster:</h2>
-								<li>Provisioning 3 servers for jenkins, nexus and nginx with Terraform and configuring them with Ansible</li>
-								<li>Dockerize a nodejs web app and push it to private docker registry hosted on nexus running behind nginx reverse proxy with tls configured</li>
+								<li>Dockerize a nodejs web app and push it to private docker registry hosted on nexus running behind nginx reverse proxy with TLS configured</li>
 								<li>Provisioning EKS cluster using Terraform with Istio gateway to be the entrypoint of our cluster</li>
 								<li>Configured a Jenkins pipeline alongside with argocd to achieve CI/CD for our application deployment</li>
 								<li>Enforced MTLS by default with Istio and Defined alert rules to fire and send notification to slack channel</li>
-								<li>Tools used: Docker, Terraform, Ansible, Istio, Jenkins, Argocd, Nexus, Kubernetes, AWS, Prometheus and Nginx </li>
-								<p>Implemented full Devops lifecycle from dockerizing nodejs web app to provision the infrastructure, configuration management of the servers with monitoring, CICD, GitOps and service mesh configured<br>Tools used: Docker, Terraform, Ansible, Istio, Jenkins, Argocd, Nexus, Kubernetes, AWS, Prometheus and Nginx </p>
+								<li>Tools : Docker, Terraform, Ansible, Istio, Jenkins, Argocd, Nexus, Kubernetes, AWS, Prometheus and Nginx </li>
 							</div>
 
 							<div class="job">
-								<h2>Recipe App API:</h2>
-								<p>Setting up an automated deployment for a Django application on an AWS infrastructure.<br>Tools used: Terraform, ECS, Docker, GitLab CI, Nginx, RDS </p>
+								<h2>AWS Cloud Resume Challenge:</h2>
+								<li>Setting an automated pipeline using Gitlab CI for hosting my resume on AWS</li>
+								<li>The resume files are stored in S3 bucket can be accessed through Cloudfront which is a CDN service that can serve the cached content at a high speed</li>
+								<li>Created a visitors counter that can be updated using Lambda function and Dynamodb</li>
+								<li>Tools : Terraform, S3, Cloudfront, Dynamodb, Lambda function, Route53 and Gitlab CI</li>
 							</div>
 
 							<div class="job last" style="margin-bottom: -1.5em;">
-								<h2>International Business Machines (IBM)</h2>
-								<p>Globally re-engineer cross-media schemas through viral methods of empowerment. Proactively grow long-term high-impact human capital and highly efficient innovation. Intrinsicly iterate excellent e-tailers with timely e-markets.</p>
+								<h2>Recipe App API:</h2>
+								<li>Setting up an automated deployment for a Django app and nginx proxy on ECS</li>
+								<li>After authorization users can upload images that will be stored in S3 and can be accessed publicly</li>
+								<li>Tools : Terraform, ECS, Docker, GitLab CI, Nginx, RDS and S3</li>
 							</div>
 
 						</div><!--// .yui-u -->
